@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using mssql_sink_custom_columns.Logging;
 
 namespace serilog_demo.Controllers
 {
@@ -21,7 +22,9 @@ namespace serilog_demo.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            _logger.LogInformation("Inside ValuesController.Get()");
+            var logData = new LogData() { Controller = "ValuesController", Action = "Get()"};
+
+            _logger.LogInformation("Inside ValuesController.Get() {@LogData}", logData);
             
             return new string[] { "value1", "value2" };
         }

@@ -1,4 +1,4 @@
-namespace serilog_demo.Logging
+namespace serilog_demo.Serilog
 {
     public static class ILoggerExtensions
     {

@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using serilog_demo.Logging;
+using serilog_demo.Serilog;
 
 namespace serilog_demo
 {
@@ -34,7 +34,7 @@ namespace serilog_demo
         {
             var connectionString = Configuration.GetConnectionString("default");
             
-            app.ConfigureSerilog(loggerFactory, Configuration.GetConnectionString("default"), "Logs");
+            app.ConfigureSerilog(loggerFactory, Configuration.GetConnectionString("default"), "CustomLogs");
 
             if (env.IsDevelopment())
             {
